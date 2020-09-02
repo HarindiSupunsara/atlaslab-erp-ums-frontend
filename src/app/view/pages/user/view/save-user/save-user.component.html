@@ -1,0 +1,99 @@
+<div *ngIf="loadingMain" style="margin-bottom: 10px; margin-top: 10px;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div [ngClass]="{'disabled': loadingMain == true}" class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <div fxFlex="100%">
+        <mat-card class="main-card sk-style-mat-card" style="min-height: 450px">
+            <mat-card-header style="height: 60px; display: flex; 
+                justify-content: space-between; margin-top: -33px; margin-left: -10px;">
+                <mat-card-title>
+                    <h4 *ngIf="editId">Update Permission</h4>
+                    <h4 *ngIf="!editId">Add New Permission</h4>
+                </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content style="margin-top: 10px;">
+                <form [formGroup]="roleFormGroup">
+                    <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+                        <div fxFlex="50">
+                            <mat-form-field class="full-width" style="width: 100%;">
+                                <input matInput placeholder="Name" formControlName="name">
+                                <mat-error *ngIf="Name.touched && Name.invalid">
+                                    <mat-error *ngIf="Name.touched && Name.errors.required">
+                                        Name is
+                                        <strong>required</strong>
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxFlex="50">
+                            <mat-form-field class="full-width" style="width: 100%;">
+                                <input matInput placeholder="Nic" formControlName="nic">
+                                <mat-error *ngIf="Nic.touched && Nic.invalid">
+                                    <mat-error *ngIf="Nic.touched && Nic.errors.required">
+                                        Nic is
+                                        <strong>required</strong>
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+                        <div fxFlex="50">
+                            <mat-form-field class="full-width" style="width: 100%;">
+                                <span matPrefix>+94 &nbsp;</span>
+                                <input type="number" matInput placeholder="Mobile No" formControlName="mobile">
+                                <mat-error *ngIf="Mobile.touched && Mobile.invalid">
+                                    <mat-error *ngIf="Mobile.touched && Mobile.errors.required">
+                                        Mobile No is
+                                        <strong>required</strong>
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="full-width" style="width: 100%;">
+                                <input matInput placeholder="Address 1" formControlName="address1">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+                        <div fxFlex="50">
+                            <mat-form-field class="full-width" style="width: 100%;">
+                                <input matInput placeholder="Address 2" formControlName="address2">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="full-width" style="width: 100%;">
+                                <input matInput placeholder="Address 3" formControlName="address3">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center"  class="first-row">
+                        <div fxFlex="100">
+                            <mat-form-field class="full-width">
+                                <mat-label>Select Roles</mat-label>
+                                    <mat-select formControlName="role" multiple>
+                                    <mat-option *ngFor="let role of roleArray" [value]="role.Id">
+                                        {{role.Name}}
+                                    </mat-option>
+                                    </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+
+            </mat-card-content>
+            <mat-card-actions style="border-top: solid #C4C4C4 1px; display: flex; 
+            justify-content: space-between;">
+                <button mat-raised-button color="warn" tabindex="3" >CLEAR</button>
+                <button mat-raised-button color="primary" tabindex="2" (click)="saveUser()">SAVE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

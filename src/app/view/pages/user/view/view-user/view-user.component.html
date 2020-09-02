@@ -1,0 +1,88 @@
+<div *ngIf="loadingMain" style="margin-bottom: 10px; margin-top: 10px;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+    fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div [ngClass]="{'disabled': loadingMain == true}" class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+    fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <div fxFlex="100%">
+        <mat-card class="main-card sk-style-mat-card" style="min-height: 600px">
+            <mat-card-header style="height: 60px; display: flex; 
+          justify-content: space-between; margin-top: -33px; margin-left: -10px;">
+                <button mat-mini-fab color="primary" style="float: right;margin-top: 20px;" routerLink="./saveuser">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <mat-card-title>
+                    <h4>All Users</h4>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="margin-top: 10px;">
+                <div fxFlex="100%">
+                    <mat-form-field class="full-width">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" #searchText="matInput">
+                    </mat-form-field>
+                    <div style="max-height: 500px;overflow: auto;min-width: 100%;">
+                        <mat-table [dataSource]="datasourceUser" class="main-table" style="min-width: 1366px;">
+                            <ng-container matColumnDef="name">
+                                <mat-header-cell *matHeaderCellDef style="flex: 0 0 15%;"> Name </mat-header-cell>
+                                <mat-cell *matCellDef="let element" style="flex: 0 0 15%;"> {{element.Name}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="address">
+                                <mat-header-cell *matHeaderCellDef style="flex: 0 0 25%;"> Address </mat-header-cell>
+                                <mat-cell *matCellDef="let element" style="flex: 0 0 25%;"> {{element.Address1}} , {{element.Address2}} , {{element.Address3}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="nic">
+                                <mat-header-cell *matHeaderCellDef style="flex: 0 0 10%;"> Nic </mat-header-cell>
+                                <mat-cell *matCellDef="let element" style="flex: 0 0 10%;"> {{element.Nic}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="mobile">
+                                <mat-header-cell *matHeaderCellDef style="flex: 0 0 10%;"> Mobile </mat-header-cell>
+                                <mat-cell *matCellDef="let element" style="flex: 0 0 10%;"> {{element.Mobile}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="createDate">
+                                <mat-header-cell *matHeaderCellDef style="flex: 0 0 10%;"> Create Date </mat-header-cell>
+                                <mat-cell *matCellDef="let element" style="flex: 0 0 10%;"> {{element.CreateDate | date:'yyyy-MM-dd'}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="updateDate">
+                                <mat-header-cell *matHeaderCellDef style="flex: 0 0 10%;"> Update Date </mat-header-cell>
+                                <mat-cell *matCellDef="let element" style="flex: 0 0 10%;"> {{element.UpdateDate | date:'yyyy-MM-dd'}} </mat-cell>
+                            </ng-container>
+
+
+                            <ng-container matColumnDef="edit">
+                                <mat-header-cell *matHeaderCellDef>
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let element"><i class="fas fa-edit tbl-edit-btn" style="flex: 0 0 5%;"
+                                        (click)="editUser(element.Id)"></i>
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="remove">
+                                <mat-header-cell *matHeaderCellDef style="display: flex;flex: 0 0 15%;align-items: right;">
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let element" style="display: flex;flex: 0 0 15%;align-items: right;">
+
+                                    <button mat-raised-button color="warn" *ngIf="element.Status == 0"  (click)="removeUser(element)">Active</button>
+                                    <button mat-raised-button style="background-color: rgb(79, 216, 147)" *ngIf="element.Status == 1"  (click)="removeUser(element)">Inactive</button>
+                                    <!-- <i class="fas fa-trash fa-1x icon_dash tbl-delete-btn" style=" flex: 0 0 10%;" (click)="removePermission(element)"></i> -->
+                                </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumnsUser;sticky:true;"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumnsUser;"></mat-row>
+                        </mat-table>
+                    </div>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions style="border-top: solid #C4C4C4 1px; display: flex; justify-content: space-between;">
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+</div>

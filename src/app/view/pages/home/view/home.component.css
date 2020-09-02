@@ -1,0 +1,128 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.padding-right-10{
+    padding-right: 10px;
+}
+
+.policy-div {
+    border-left: solid 5px #1FC1ED; 
+    background: #b3edfc; 
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.policy-div:hover {
+    border-left: solid 5px rgb(0, 177, 226); 
+    background: #8ce1f7; 
+}
+
+.new-Business-div{
+    border-left: solid 5px #18A55D; 
+    background: #a4f2ca;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.new-Business-div:hover{
+    border-left: solid 5px rgb(0, 133, 64); 
+    background: #77ecb0;
+}
+
+.proposal-div{
+    border-left: solid 5px #DB4C3F; 
+    background: #dba19d; 
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.proposal-div:hover{
+    border-left: solid 5px rgb(207, 48, 33); 
+    background: #d1837d; 
+}
+
+.inv-div{
+    border-left: solid 5px #F19B2C;
+    background: #f7d2a5;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.inv-div:hover{
+    border-left: solid 5px rgb(235, 133, 0);
+    background: #f0bc7e;
+}
+
+.gl-div{
+    border-left: solid 5px #7561F4; 
+    background: #cac3f4; 
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.gl-div:hover{
+    border-left: solid 5px rgb(94, 70, 248); 
+    background: #beb5f5; 
+}
+
+.flex-box{
+    width: 100%; height: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.icon_dash{
+    width: 90%; height: 90%;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    background: #F7F7F7;
+    background-position: center;
+}
+
+*mat-card{
+    min-height: 741px;
+    margin-top: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+h3{
+    font-size: 15px;
+}
+
+.mat-card-header-sk-style{
+    margin-top: 20px;
+    margin-left: -13px;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.mat-k-sk-style{
+    min-height: 741px;
+    height: auto;
+    margin-top: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.makeGreen{
+    background-color: #d6ffd6;
+}
+
+.makeRed{
+    background-color: rgb(247, 206, 202);
+}
+
