@@ -5,8 +5,7 @@
 <div [ngClass]="{'disabled': loadingMain == true}" class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <div fxFlex="100%">
         <mat-card class="main-card sk-style-mat-card" style="min-height: 450px">
-            <mat-card-header style="height: 60px; display: flex; 
-                justify-content: space-between; margin-top: -33px; margin-left: -10px;">
+            <mat-card-header  class="card-header">
                 <mat-card-title>
                     <h4 *ngIf="editId">Update Permission</h4>
                     <h4 *ngIf="!editId">Add New Permission</h4>
@@ -31,8 +30,7 @@
                 </form>
 
             </mat-card-content>
-            <mat-card-actions style="border-top: solid #C4C4C4 1px; display: flex; 
-            justify-content: space-between;">
+            <mat-card-actions  style="border-top: solid #C4C4C4 1px; display: flex; justify-content: space-between;">
                 <button mat-raised-button color="warn" tabindex="3" >CLEAR</button>
                 <button mat-raised-button color="primary" tabindex="2" (click)="savePermission()">SAVE</button>
             </mat-card-actions>

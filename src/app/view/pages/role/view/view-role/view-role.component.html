@@ -6,8 +6,7 @@
     fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <div fxFlex="100%">
         <mat-card class="main-card sk-style-mat-card" style="min-height: 600px">
-            <mat-card-header style="height: 60px; display: flex; 
-          justify-content: space-between; margin-top: -33px; margin-left: -10px;">
+            <mat-card-header class="card-header">
                 <button mat-mini-fab color="primary" style="float: right;margin-top: 20px;" routerLink="./saverole">
                     <mat-icon>add</mat-icon>
                 </button>
@@ -20,7 +19,7 @@
                     <mat-form-field class="full-width">
                         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" #searchText="matInput">
                     </mat-form-field>
-                    <div style="max-height: 500px;overflow: auto;min-width: 100%;">
+                    <div class="table-div">
                         <mat-table [dataSource]="datasourceRole" class="main-table" style="min-width: 1366px;">
                             <ng-container matColumnDef="name">
                                 <mat-header-cell *matHeaderCellDef style="flex: 0 0 25%;"> Name </mat-header-cell>
@@ -64,7 +63,7 @@
                 </div>
             </mat-card-content>
 
-            <mat-card-actions style="border-top: solid #C4C4C4 1px; display: flex; justify-content: space-between;">
+            <mat-card-actions  style="border-top: solid #C4C4C4 1px; display: flex; justify-content: space-between;">
                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
             </mat-card-actions>
         </mat-card>
